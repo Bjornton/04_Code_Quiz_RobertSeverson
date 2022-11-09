@@ -4,9 +4,9 @@
 var timeEl = document.querySelector("#timeEl");
 var timer = document.querySelector("#start");
 var questionsContainer = document.querySelector("#questionsContainer");
-var wrapper = document.querySelector("#container");
+var container = document.querySelector("#container");
 
-var timeLeft = 5;
+var timeLeft = 100;
 var timerInterval = 0;
 var ulCreate = document.createElement("ul");
 
@@ -16,14 +16,27 @@ timer.addEventListener("click", function () {
             timeLeft--;
             timeEl.textContent = "Time: " + timeLeft;
 
-            if (timeLeft === 0) {
+            if (timeLeft <= 0) {
                 clearInterval(timerInterval);
+                //End game function I guess?
             }
         }, 1000);
     }
-    render(questionIndex);
+    render(questionList);
 });
 
+function render(questionList) {
+    questionsContainer.innerHTML = "";
+    ulCreate.innerHTML = "";
+
+    for (var i = 0; i < questions.length; i++) {
+        var userQuestion = questions[questionList].title;
+        questionsContainer.textContent = userQuestion;
+    }
+}
+
+var score = 0;
+var questionList = 0;
 
 // Questions were gathered from https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS
 var questions = [

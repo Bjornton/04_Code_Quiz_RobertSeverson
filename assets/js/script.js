@@ -1,3 +1,30 @@
+//Timer Function
+
+//Inspiration was used from 04-Web-APIs activity 9 section in class code.
+var timeEl = document.querySelector("#timeEl");
+var timer = document.querySelector("#start");
+var questionsContainer = document.querySelector("#questionsContainer");
+var wrapper = document.querySelector("#container");
+
+var timeLeft = 5;
+var timerInterval = 0;
+var ulCreate = document.createElement("ul");
+
+timer.addEventListener("click", function () {
+    if (timerInterval === 0) {
+        timerInterval = setInterval(function () {
+            timeLeft--;
+            timeEl.textContent = "Time: " + timeLeft;
+
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+            }
+        }, 1000);
+    }
+    render(questionIndex);
+});
+
+
 // Questions were gathered from https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS
 var questions = [
     {

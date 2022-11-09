@@ -31,9 +31,18 @@ function render(questionList) {
 
     for (var i = 0; i < questions.length; i++) {
         var userQuestion = questions[questionList].title;
+        var userChoices = questions[questionList].choices;
         questionsContainer.textContent = userQuestion;
     }
-}
+
+    userChoices.forEach(function (newItem) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newItem;
+        questionsContainer.appendChild(ulCreate);
+        ulCreate.appendChild(listItem);
+        listItem.addEventListener("click", (compare));
+    })
+};
 
 var score = 0;
 var questionList = 0;

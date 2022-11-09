@@ -1,3 +1,4 @@
+/*Universal style*/
 * {
     margin: 0;
     font-family:Arial, Helvetica, sans-serif;
@@ -7,6 +8,7 @@
     font-size: 22px;
 }
 
+/*Puts the cotainer div into the lower section of the page and separates it from the header*/
 #container {
     position: absolute;
     left: 30%;
@@ -15,15 +17,18 @@
     height: 500px;
 }
 
+/*Where the questions will display*/
 #questionsContainer {
     margin: 20px;
     text-align: center;
 }
 
+/*Puts the timer in the top right corner of the page*/
 #timeEl {
     float: right;
 }
 
+/*Puts the start button below the description*/
 #start {
     margin-top: 30px;
     padding: 15px 32px;
